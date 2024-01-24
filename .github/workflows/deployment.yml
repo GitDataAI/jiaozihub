@@ -13,7 +13,7 @@ jobs:
   deployment:
     # first create deploy deployment
     # pr to deployment -> push deployment
-    if: ${{ startsWith(github.ref, 'refs/heads/deployment/') ||  startsWith(github.head_ref, 'deployment/')  }}
+    if: ${{ startsWith(github.ref, 'refs/heads/deployment/') ||  startsWith(github.base_ref, 'deployment/')  }}
     runs-on: [self-hosted]
     steps:
       - name: Checkout repo
