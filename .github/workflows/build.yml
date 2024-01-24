@@ -19,7 +19,7 @@ jobs:
           echo "Actor: ${{ github.actor }}"
           echo "Workflow Run ID: ${{ github.run_id }}"
           echo "Head Repository: ${{ github.head_repository }}"
-          echo "Base Repository: ${{ github.base_repository }}"
+          echo   "Base Repository: ${{ github.base_repository }}"
         
       - name: Checkout repo
         uses: actions/checkout@v3
