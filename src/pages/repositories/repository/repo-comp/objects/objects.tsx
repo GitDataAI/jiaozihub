@@ -66,7 +66,6 @@ const ObjectsBrowser = () => {
         </ActionGroup>
 
         <ActionGroup orientation="right">
-          <RefreshButton onClick={refresh} />
         <Button
         variant={"light"}
         >
@@ -142,24 +141,8 @@ const ObjectsBrowser = () => {
         </ActionGroup>
 
         <ActionGroup orientation="right">
-          {/* <PrefixSearchWidget
-            text="Search by Prefix"
-            key={filepath}
-            defaultValue={searchSuffix}
-            onFilter={(prefix: string) => {
-              let query = { path: "",ref:"" };
-              if (searchPrefix !== undefined) query.path = searchPrefix;
-              if (prefix) query.path += prefix;
-              if (reference) query.ref = reference.name;
-              const url = {
-                pathname: `/repositories/:user/:repoId/objects`,
-                query,
-                params: { repoId: repo.name,user },
-              };
-              router.push(url);
-            }}
-          /> */}
-          <RefreshButton onClick={refresh} />
+         
+          <RefreshButton onClick={refresh} enabled={false} />
         <Button
         variant={"light"}
         >

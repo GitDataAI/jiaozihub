@@ -1,5 +1,4 @@
 import React, { useCallback,useState } from "react";
-import dayjs from "dayjs";
 import {
     AlertError,
     Loading,
@@ -15,7 +14,6 @@ import { getActions } from "../../../../../util/changes";
 import { FileContents, getContentType, getFileExtension } from "./objectViewer";
 
 const README_FILE_NAME = "README.md";
-const REPOSITORY_AGE_BEFORE_GC = 14;
 
 
 export const TreeContainer= ({

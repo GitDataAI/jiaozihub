@@ -144,7 +144,6 @@ const EntryRow = ({repo, reference, entry}) => {
     );
   }
 export const Objectlist =({entrises,repo,reference})=>{
-
     return (
         <>
         {   
