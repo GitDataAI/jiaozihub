@@ -109,25 +109,12 @@ const EntryRow = ({repo, reference, entry}) => {
     }
 
   
-      let diffstyle;
-    switch (entry.action) {
-      case 2:
-        break;
-      case 1:
-        diffstyle = "diif-add"
-        break;
-      case 3:
-        diffstyle = "diif-change"
-        break;
-      default:
-        diffstyle = "tree-path"
-        break;
-    }
+
   
     return (
       <>
         <div className={entry.is_dir?dirClass:fileClass} ref={fNode}>
-          <div className={diffstyle}>
+          <div>
           <span onClick={handleClick}>{entry.is_dir === true ? (
             <>
               {show?<AiFillCaretDown  className="Nav-Down"/>:<AiFillCaretRight  className="Nav-Down"/>}
