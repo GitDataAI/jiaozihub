@@ -1,7 +1,7 @@
-import { FileDirectoryIcon, FileIcon, HistoryIcon, PencilIcon, PlusIcon, TrashIcon } from "@primer/octicons-react"
+import { FileIcon, HistoryIcon, PencilIcon, PlusIcon, TrashIcon } from "@primer/octicons-react"
 import React, { useState } from "react"
 import { Alert, Button, Card, OverlayTrigger, Table, Tooltip } from "react-bootstrap"
-import { Link } from "react-router-dom";
+
 import { ConfirmationModal } from "../../../../../lib/components/modals";
 
 const ChangeRow = ({change,revert}) =>{

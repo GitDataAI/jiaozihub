@@ -21,7 +21,7 @@ export default ({ command }) => {
     publicDir: './pub',
   };
 
-  // 在开发环境
+  // In the development environment
   if (command === 'serve' || command === 'test') {
     return {
       ...baseConfig,

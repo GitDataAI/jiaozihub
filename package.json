@@ -5,7 +5,7 @@
     "node": ">= 16.16.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build",
     "docker": "docker build -t gitdatateam/jiaozifs-ui:latest . && docker push gitdatateam/jiaozifs-ui:latest",
     "docker-test": "docker build -t gitdatateam/jiaozifs-ui:test . && docker push gitdatateam/jiaozifs-ui:test",
@@ -20,7 +20,8 @@
     "@duckdb/duckdb-wasm": "^1.26.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.11.1",
+    "@mui/lab": "^6.0.0-beta.9",
+    "@mui/material": "^6.0.2",
     "@primer/octicons-react": "^17.10.0",
     "@react-icons/all-files": "^4.1.0",
     "@types/react-bootstrap": "^0.32.36",

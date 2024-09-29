@@ -1857,6 +1857,7 @@
     outline: none;
     border: none;
   }
+  .fade
   .ipynb-renderer-root .nbext-filter-menu:hover {
     border: none ;
   }

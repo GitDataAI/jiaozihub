@@ -186,7 +186,7 @@ export const ChangesTreeContainer= ({results, delimiter, uriNavigator,
                                     <ArrowLeftIcon/> Back to object comparison
                                   </Button>
                                 : <div className="mr-1 mb-2">{showCompareTip && <Alert onClose={closeAndRememberCompareTip} dismissible variant={"info"}>
-                                    <InfoIcon/> You can use JiaoziFS to compare Delta Lake tables. <a href="https://docs.pando.network/integrations/delta.html">Learn more.</a></Alert>}
+                                    <InfoIcon/> You can use JZFS to compare Delta Lake tables. <a href="https://docs.pando.network/integrations/delta.html">Learn more.</a></Alert>}
                                   </div>
                     }
                     <div>{changesTreeMessage}</div>

@@ -22,7 +22,7 @@ export class Auth {
     }
 
  
-    // 登录，返回一个JSON对象，包含了认证令牌的信息
+    //fixui2.0 Login returns a JSON object containing the information of the authentication token
     async login(username: string, password: string) {
         await apiRequest(`/auth/login`, { 
             method: 'POST', 
@@ -45,7 +45,7 @@ export class Auth {
                 }
         });
     }
-    // 获取当前登录用户的信息，返回一个JSON对象，包含了用户信息
+    //fixui2.0 Obtain the information of the current logged-in user and return a JSON object containing the user information
     async getUserInfo(token:string):Promise<UserInfo>{
         let headers = new Headers()
         headers.append("Authorization", token)
@@ -63,7 +63,7 @@ export class Auth {
         return response.json();
     }
     
-    // 注销登录
+    //fixui2.0 Log out of login
     async logout() {
         const response = await apiRequest(`/auth/logout`, { method: 'POST' });
         if (!response.ok) {

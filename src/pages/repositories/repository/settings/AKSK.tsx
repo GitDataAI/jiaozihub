@@ -26,7 +26,7 @@ const CreateAKSKModal = ({show, onSubmit, onCancel,setDescription}) => {
             <Modal.Body>
             description:
                 <Form.Control className="mt-2" placeholder="Input description" type="text" autoFocus onChange={handleInput}/>
-                <Form.Control value="Create" type="submit"  onClick={onSubmit}/>
+                <Form.Control value="Create" type="submit" className="creatButton" onClick={onSubmit}/>
             </Modal.Body>
              
         </Modal>

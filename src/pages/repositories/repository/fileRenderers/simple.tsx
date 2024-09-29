@@ -16,7 +16,6 @@ import { CustomMarkdownRenderer } from "./CustomMarkdownRenderer";
 import {
   RendererComponent,
   RendererComponentWithText,
-  RendererComponentWithTextCallback,
 } from "./types";
 import imageUriReplacer from "../../../../lib/remark-plugins/imageUriReplacer";
 import { object } from "../../../../lib/api/interface/index";

@@ -53,7 +53,8 @@ export const RepositoryCreateForm:React.FC<RepositoryCreateFormProps> = ( {id, o
               description: DescriptionField.current ? DescriptionField.current.value : '',
               visible: visible,
               blockstore_config: ConfigField.current ? ConfigField.current.value: ''
-            });
+            })
+            
         }}>
             <h4 className="mb-3">Create A New Repository</h4>
             <FloatingLabel label="Repository Name" controlId="repositryIdControl">

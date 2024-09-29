@@ -1,0 +1,83 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.loader {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #666;
+  filter: url(#fluid);
+  background: transparent;
+  animation: animate 5s infinite;
+  animation-delay: 0s;
+}
+
+svg {
+  width: 0;
+  height: 0;
+}
+
+.loader span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(45deg * var(--i)));
+}
+
+.rotate {
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(-0.2 * var(--j));
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+}
+
+.content img {
+  width: 70px;
+  margin: 0 auto;
+}
+
+.content h1 {
+  font-size: 16px;
+  margin: 20px auto;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #c7eeff, #0070ba);
+  border-radius: 50%;
+  box-shadow: 0 0 30px #0070b9;
+  left: calc(50% - 20px);
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

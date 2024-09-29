@@ -13,6 +13,7 @@ import { ActionsBar } from "../../lib/components/controls";
 import { cache } from '../../lib/api';
 import { useRouter } from "../../lib/hooks/router";
 import { PiTextAaBold } from "react-icons/pi";
+import Alert from '@mui/material/Alert';
 
 import { Route, Routes } from "react-router-dom";
 import { CreateRepositoryButton, CreateRepositoryModal, RepositoryList } from "./repos-comp";
@@ -28,6 +29,10 @@ dayjs.extend(relativeTime);
 
 const RepositoriesPage = () => {
     const router = useRouter();
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertClass, setAlertClass] = useState('');
+    const [visible, setVisible] = useState(showAlert);
+    const [alertMessage, setAlertMessage] = useState('');
     const [showCreateRepositoryModal, setShowCreateRepositoryModal] = useState(false);
     const [sampleRepoChecked, setSampleRepoChecked] = useState(false);
     const [createRepoError, setCreateRepoError] = useState(null);
@@ -64,7 +69,7 @@ const RepositoriesPage = () => {
         try {
             setCreatingRepo(true);
             setCreateRepoError(null);
-            await users.createRepository(repo);
+            const usersData = await users.createRepository(repo);
             setRefresh(!refresh);
             if (presentRepo) {
                 router.push({ pathname: `/repositories/:user/:repoId/objects`, params: { repoId: repo.name, user: owner }, query: {} });
@@ -72,7 +77,9 @@ const RepositoriesPage = () => {
             return true;
         } catch (error: any) {
             setCreatingRepo(false);
+            setShowAlert(true)
             setCreateRepoError(error);
+            setAlertMessage(error)
             return false;
         }
     };
@@ -86,9 +93,24 @@ const RepositoriesPage = () => {
         setShowCreateRepositoryModal(true);
         setCreateRepoError(null);
     }, [showCreateRepositoryModal, setShowCreateRepositoryModal]);
-
+    useEffect(() => {
+        if (showAlert) {
+          setAlertClass(''); // Clear the fade-out animation class to show the alert
+          // Set a timer to add the fade-out animation class after a delay
+          const timer = setTimeout(() => {
+            setAlertClass('fade-out'); // Add the fade-out animation class
+            // Set another timer to hide the alert after the fade-out animation completes
+            setTimeout(() => setShowAlert(false), 500); // Delay hiding the alert to allow the animation to finish
+          }, 2000); // Show the alert for 2000ms (2 seconds)
+          // Cleanup function to clear the timer if the component unmounts or `showAlert` changes
+          return () => clearTimeout(timer);
+        }
+      }, [showAlert]); // Dependency array: effect will run whenever `showAlert` changes
+    
     return (
         <Layout>
+            {/* Pop up window does not prompt bug fix */}
+             {showAlert && <Alert severity="error" className={`Alerterror ${alertClass}`}>Request error: {alertMessage.status}</Alert>}
             <Container fluid="xl" className="mt-3">
                 {<ActionsBar>
                     <h2 className="repoTittle"><strong>{filter?filter:'All'}</strong></h2>
@@ -106,7 +128,8 @@ const RepositoriesPage = () => {
                         <Dropdown>
         <Dropdown.Toggle variant="outline-primary" className="sortType"  id="dropdown-basic">
           {order=='asc'?<HiSortAscending />:<PiSortAscendingBold />}
-          {sortBy=='name'?'Name':'Last Pushed'}
+          {sortBy=='name'?'Name':'Last Pushed'}-{order=='asc'?'Ascending':'Descending'}
+          {/*fixui2.0 Modifying bugs, filtering data prompts are not complete enough */}
         </Dropdown.Toggle>
         <Dropdown.Menu className="sortMenu">
           <Dropdown.Item onClick={() => setSortBy('name')}><PiTextAaBold />Name</Dropdown.Item>

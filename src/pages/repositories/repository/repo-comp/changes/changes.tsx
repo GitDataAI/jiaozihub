@@ -24,8 +24,6 @@ import { object, repos, wip } from "../../../../../lib/api/interface/index";
 import { UploadButton } from "../objects/uplodaButton";
 import ChangeList from "../../commits/commit/changesrow";
 import { ActivepageContext } from "../../../../../lib/hooks/conf";
-import { Dropdown } from "react-bootstrap";
-
 
 const CommitButton: React.FC<CommitButtonProps> = ({repo, onCommit, enabled = false}) => {
     const [msg, setMsg] = useState('');

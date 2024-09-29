@@ -1,4 +1,4 @@
-// 为repositories中的index.tsx提供接口
+// Provide an interface for index.tsx in repositories
 import { CSSProperties, MouseEventHandler, ReactElement } from "react";
 
 export interface CreateRepositoryButtonProps {

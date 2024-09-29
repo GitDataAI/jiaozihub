@@ -80,7 +80,7 @@ html{
   margin: 5px;
 }
 .navbar a.dropdown-toggle:hover {
-  color: #8d8b8b;
+  color: rgb(5,111,187);
 }
 
 .nav-tabs .nav-link.active {
@@ -422,7 +422,9 @@ td.change-entry-row-actions {
 .auth-page .tab-content {
   padding: 20px 0;
 }
-
+.form-control{
+  position: relative;
+}
 textarea.form-control.policy-document {
   font-family: "SFMono-Regular", Menlo, Consolas, Monospace, serif;
   font-size: 10px;
@@ -862,13 +864,35 @@ td.entry-type-indicator {
   cursor: pointer;
   margin-bottom: 20px;
 }
-
+.wordname{
+  line-height: 5vh;
+  width:25vw;
+  position: absolute;
+  right: 5vh;
+  margin-top: 2vw;
+  margin-right: 15vw;
+}
 .file-drop-zone.file-drop-zone-focus {
   border: 2px dashed #94B49F;
   color: #94B49F;
   background-color: #E8F3D6;
 }
-
+.backname22{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1vh;
+  bottom: 0;
+  z-index: 50;
+  width: 90vw;
+  height: 100vh;
+  position: absolute;
+}
+.backname11{
+  width: 100vw;
+  height: 150vh;
+  position: absolute;
+}
 .upload-item {
   font-family: "SFMono-Regular", menlo, consolas, monospace;
   padding: 3px 0;

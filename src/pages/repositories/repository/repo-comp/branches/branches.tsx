@@ -53,7 +53,7 @@ const BranchWidget = ({ repo, branch, onDelete }:BranchWidgetParms) => {
         deleteMsg = (
             <>
                 <p>{deleteMsg}</p>
-                <Alert variant="warning"><strong>Warning</strong> this is a system branch used for importing data to JiaoziFS</Alert>
+                <Alert variant="warning"><strong>Warning</strong> this is a system branch used for importing data to JZFS</Alert>
             </>
         );
     }
